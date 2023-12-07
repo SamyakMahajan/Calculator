@@ -87,7 +87,7 @@ operatorButtons.forEach(button => {
             isnew=false;
         }
         else
-            currentExpresion += button.textContent;
+            currentExpression += button.textContent;
         updateDisplay();
     });
 });
@@ -108,12 +108,13 @@ equalsButton.addEventListener('click', () => {
     try {
         calc.calculate(currentExpression);
         console.log(currentExpression)
-        currentExpression = '' + calc.getResult();
-        updateDisplay();
+        currentExpression = '' + calc.getResult();        
         isnew=true;
+        updateDisplay();
     } catch (error) {
         console.error(error.message);
-        currentExpression = '';
+        currentExpression = 'Invalid';
+        isnew=true;
         updateDisplay();
     }
 });
